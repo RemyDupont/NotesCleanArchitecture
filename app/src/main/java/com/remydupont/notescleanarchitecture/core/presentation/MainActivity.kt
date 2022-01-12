@@ -1,4 +1,4 @@
-package com.remydupont.notescleanarchitecture.feature_notes.presentation
+package com.remydupont.notescleanarchitecture.core.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
