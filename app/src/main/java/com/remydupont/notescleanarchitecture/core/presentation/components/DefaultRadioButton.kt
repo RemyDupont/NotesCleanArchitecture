@@ -1,4 +1,4 @@
-package com.remydupont.notescleanarchitecture.feature_notes.presentation.notes.components
+package com.remydupont.notescleanarchitecture.core.presentation.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

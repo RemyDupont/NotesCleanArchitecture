@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.remydupont.notescleanarchitecture.feature_notes.domain.model.Note
-import com.remydupont.notescleanarchitecture.feature_notes.presentation.add_edit_note.components.TransparentHintTextField
+import com.remydupont.notescleanarchitecture.core.presentation.components.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
