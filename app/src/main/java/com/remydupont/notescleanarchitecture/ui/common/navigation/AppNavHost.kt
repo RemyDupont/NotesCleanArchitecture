@@ -20,8 +20,23 @@ fun AppNavHost(
         navController = navController,
         startDestination = Screen.NotesScreen.route
     ) {
+        // Auth screens
+        loginScreenComposable(navController)
+        registerScreenComposable(navController)
+        forgotPasswordScreenComposable(navController)
+
+        // Home screen
+        homeScreenComposable(navController)
+
+        // Notes screens
         notesScreenComposable(navController)
         addEditNotesScreenComposable(navController)
+
+        // Counters screen
+        countersScreenComposable(navController)
+
+        // Profile screen
+        profileScreenComposable(navController)
     }
 }
 
@@ -64,6 +79,72 @@ private fun NavGraphBuilder.addEditNotesScreenComposable(navController: NavContr
                 navController = navController,
                 noteColor = color
             )
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.loginScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.registerScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.forgotPasswordScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.homeScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.countersScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
+        }
+    }
+}
+
+/**
+ * Wrap [] navigation composable
+ */
+private fun NavGraphBuilder.profileScreenComposable(navController: NavController) {
+    apply {
+        composable(route = Screen.LoginScreen.route) {
+
         }
     }
 }
