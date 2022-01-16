@@ -1,7 +1,9 @@
 package com.remydupont.notescleanarchitecture.ui.common.navigation
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,14 +21,18 @@ import com.remydupont.notescleanarchitecture.ui.feature_profile.ProfileScreen
 @ExperimentalAnimationApi
 @Composable
 fun AppNavHost(
-    navController: NavHostController
+    navController: NavHostController,
+    scaffoldState: ScaffoldState,
+    modifier: Modifier,
+    startDestination: String = Screen.LoginScreen.route
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.NotesScreen.route
+        startDestination = startDestination,
+        modifier = modifier
     ) {
         // Auth screens
-        loginScreenComposable(navController)
+        loginScreenComposable(navController, scaffoldState)
         registerScreenComposable(navController)
         forgotPasswordScreenComposable(navController)
 
@@ -88,10 +94,13 @@ private fun NavGraphBuilder.addEditNotesScreenComposable(navController: NavContr
 /**
  * Wrap [LoginScreen] navigation composable
  */
-private fun NavGraphBuilder.loginScreenComposable(navController: NavController) {
+private fun NavGraphBuilder.loginScreenComposable(
+    navController: NavController,
+    scaffoldState: ScaffoldState
+) {
     apply {
         composable(route = Screen.LoginScreen.route) {
-            LoginScreen()
+            LoginScreen(navController, scaffoldState)
         }
     }
 }

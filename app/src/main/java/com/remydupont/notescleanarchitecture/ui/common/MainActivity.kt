@@ -5,9 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.*
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -36,6 +36,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             NotesCleanArchitectureTheme {
+                val scaffoldState = rememberScaffoldState()
                 val navController = rememberNavController()
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
@@ -48,11 +49,14 @@ class MainActivity : ComponentActivity() {
                         ) {
                             AppBottomNavigation(navController = navController)
                         }
-                    }
+                    },
+                    scaffoldState = scaffoldState
                 ) { innerPadding ->
-                    Box(modifier = Modifier.padding(innerPadding)) {
-                        AppNavHost(navController = navController)
-                    }
+                    AppNavHost(
+                        navController = navController,
+                        scaffoldState = scaffoldState,
+                        Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
