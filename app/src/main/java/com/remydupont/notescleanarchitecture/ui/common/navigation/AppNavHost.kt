@@ -5,8 +5,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.remydupont.notescleanarchitecture.ui.feature_authentication.forgot_password.ForgotPasswordScreen
+import com.remydupont.notescleanarchitecture.ui.feature_authentication.login.LoginScreen
+import com.remydupont.notescleanarchitecture.ui.feature_authentication.register.RegisterScreen
+import com.remydupont.notescleanarchitecture.ui.feature_counters.CountersScreen
 import com.remydupont.notescleanarchitecture.ui.feature_notes.add_edit_note.AddEditNoteScreen
 import com.remydupont.notescleanarchitecture.ui.feature_notes.notes.NotesScreen
+import com.remydupont.notescleanarchitecture.ui.feature_profile.ProfileScreen
 
 /**
  * Define application [NavHost]
@@ -24,9 +29,6 @@ fun AppNavHost(
         loginScreenComposable(navController)
         registerScreenComposable(navController)
         forgotPasswordScreenComposable(navController)
-
-        // Home screen
-        homeScreenComposable(navController)
 
         // Notes screens
         notesScreenComposable(navController)
@@ -84,67 +86,56 @@ private fun NavGraphBuilder.addEditNotesScreenComposable(navController: NavContr
 }
 
 /**
- * Wrap [] navigation composable
+ * Wrap [LoginScreen] navigation composable
  */
 private fun NavGraphBuilder.loginScreenComposable(navController: NavController) {
     apply {
         composable(route = Screen.LoginScreen.route) {
-
+            LoginScreen()
         }
     }
 }
 
 /**
- * Wrap [] navigation composable
+ * Wrap [RegisterScreen] navigation composable
  */
 private fun NavGraphBuilder.registerScreenComposable(navController: NavController) {
     apply {
-        composable(route = Screen.LoginScreen.route) {
-
+        composable(route = Screen.RegisterScreen.route) {
+            RegisterScreen()
         }
     }
 }
 
 /**
- * Wrap [] navigation composable
+ * Wrap [ForgotPasswordScreen] navigation composable
  */
 private fun NavGraphBuilder.forgotPasswordScreenComposable(navController: NavController) {
     apply {
-        composable(route = Screen.LoginScreen.route) {
-
+        composable(route = Screen.ForgotPasswordScreen.route) {
+            ForgotPasswordScreen()
         }
     }
 }
 
 /**
- * Wrap [] navigation composable
- */
-private fun NavGraphBuilder.homeScreenComposable(navController: NavController) {
-    apply {
-        composable(route = Screen.LoginScreen.route) {
-
-        }
-    }
-}
-
-/**
- * Wrap [] navigation composable
+ * Wrap [CountersScreen] navigation composable
  */
 private fun NavGraphBuilder.countersScreenComposable(navController: NavController) {
     apply {
-        composable(route = Screen.LoginScreen.route) {
-
+        composable(route = Screen.CountersScreen.route) {
+            CountersScreen()
         }
     }
 }
 
 /**
- * Wrap [] navigation composable
+ * Wrap [ProfileScreen] navigation composable
  */
 private fun NavGraphBuilder.profileScreenComposable(navController: NavController) {
     apply {
-        composable(route = Screen.LoginScreen.route) {
-
+        composable(route = Screen.ProfileScreen.route) {
+            ProfileScreen()
         }
     }
 }

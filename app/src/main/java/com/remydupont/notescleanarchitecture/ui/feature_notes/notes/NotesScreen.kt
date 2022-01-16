@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.remydupont.notescleanarchitecture.ui.common.navigation.Screen
 import com.remydupont.notescleanarchitecture.ui.feature_notes.notes.components.NoteItem
 import com.remydupont.notescleanarchitecture.ui.feature_notes.notes.components.OrderSection
-import com.remydupont.notescleanarchitecture.ui.common.navigation.Screen
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
@@ -73,8 +73,8 @@ fun NotesScreen(
         
             AnimatedVisibility(
                 visible = state.isOrderSelectionVisible,
-                enter = fadeIn() + slideInVertically(),
-                exit = fadeOut() + slideOutVertically()
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
             ) {
                 OrderSection(
                     modifier = Modifier
