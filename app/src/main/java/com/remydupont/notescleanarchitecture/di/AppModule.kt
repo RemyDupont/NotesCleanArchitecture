@@ -2,10 +2,10 @@ package com.remydupont.notescleanarchitecture.di
 
 import android.app.Application
 import androidx.room.Room
-import com.remydupont.notescleanarchitecture.feature_notes.data.data_source.NoteDatabase
-import com.remydupont.notescleanarchitecture.feature_notes.data.repository.NoteRepositoryImpl
-import com.remydupont.notescleanarchitecture.feature_notes.domain.repository.NoteRepository
-import com.remydupont.notescleanarchitecture.feature_notes.domain.use_case.*
+import com.remydupont.notescleanarchitecture.data.data_source.notes.NoteDatabase
+import com.remydupont.notescleanarchitecture.data.repository.notes.NoteRepositoryImpl
+import com.remydupont.notescleanarchitecture.domain.repository.NoteRepository
+import com.remydupont.notescleanarchitecture.domain.use_case.notes.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
