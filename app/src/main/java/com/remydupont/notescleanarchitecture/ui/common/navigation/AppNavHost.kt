@@ -144,7 +144,7 @@ private fun NavGraphBuilder.countersScreenComposable(navController: NavControlle
 private fun NavGraphBuilder.profileScreenComposable(navController: NavController) {
     apply {
         composable(route = Screen.ProfileScreen.route) {
-            ProfileScreen()
+            ProfileScreen(navController)
         }
     }
 }
