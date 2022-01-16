@@ -30,14 +30,14 @@ private val DarkColorPalette = darkColors(
     onPrimary = DarkGray,
     background = DarkGray,
     onBackground = Color.White,
-    surface = LightBlue,
+    surface = LightGray,
     onSurface = Color.White
 )
 
 @Composable
 fun NotesCleanArchitectureTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
 
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette

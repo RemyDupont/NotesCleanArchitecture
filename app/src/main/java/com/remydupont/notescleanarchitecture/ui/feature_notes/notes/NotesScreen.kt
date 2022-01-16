@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.remydupont.notescleanarchitecture.ui.common.components.AppSnackBar
 import com.remydupont.notescleanarchitecture.ui.common.navigation.Screen
 import com.remydupont.notescleanarchitecture.ui.feature_notes.notes.components.NoteItem
 import com.remydupont.notescleanarchitecture.ui.feature_notes.notes.components.OrderSection
@@ -43,7 +44,8 @@ fun NotesScreen(
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
             }
         },
-        scaffoldState = scaffoldState
+        scaffoldState = scaffoldState,
+        snackbarHost = { AppSnackBar(hostState = it) }
     ) {
         Column(
             modifier = Modifier

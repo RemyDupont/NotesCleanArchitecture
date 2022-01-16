@@ -27,9 +27,11 @@ fun ProfileScreen(
         ) {
             Text(text = "Profile Screen", fontSize = 32.sp)
             Spacer(modifier = Modifier.height(32.dp))
-            Button(onClick = {
-                navigateToLogin(navController)
-            }) {
+            Button(
+                onClick = {
+                    navigateToLogin(navController)
+                }
+            ) {
                 Text(text = "Logout", fontSize = 18.sp)
             }
         }

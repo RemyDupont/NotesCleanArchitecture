@@ -6,13 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.remydupont.notescleanarchitecture.ui.common.components.AppSnackBar
 import com.remydupont.notescleanarchitecture.ui.common.navigation.AppBottomNavigation
 import com.remydupont.notescleanarchitecture.ui.common.navigation.AppNavHost
 import com.remydupont.notescleanarchitecture.ui.common.navigation.bottomNavigationRoutes
@@ -40,23 +43,27 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
-                Scaffold(
-                    bottomBar = {
-                        AnimatedVisibility(
-                            visible = bottomNavigationRoutes.contains(currentRoute),
-                            enter = fadeIn() + expandVertically(),
-                            exit = fadeOut() + shrinkVertically()
-                        ) {
-                            AppBottomNavigation(navController = navController)
-                        }
-                    },
-                    scaffoldState = scaffoldState
-                ) { innerPadding ->
-                    AppNavHost(
-                        navController = navController,
+                
+                Surface(color = MaterialTheme.colors.background) {
+                    Scaffold(
+                        bottomBar = {
+                            AnimatedVisibility(
+                                visible = bottomNavigationRoutes.contains(currentRoute),
+                                enter = fadeIn() + expandVertically(),
+                                exit = fadeOut() + shrinkVertically()
+                            ) {
+                                AppBottomNavigation(navController = navController)
+                            }
+                        },
                         scaffoldState = scaffoldState,
-                        Modifier.padding(innerPadding)
-                    )
+                        snackbarHost = { AppSnackBar(hostState = it)}
+                    ) { innerPadding ->
+                        AppNavHost(
+                            navController = navController,
+                            scaffoldState = scaffoldState,
+                            Modifier.padding(innerPadding)
+                        )
+                    }
                 }
             }
         }

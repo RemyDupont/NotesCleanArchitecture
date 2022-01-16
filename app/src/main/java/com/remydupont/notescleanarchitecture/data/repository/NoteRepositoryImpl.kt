@@ -1,4 +1,4 @@
-package com.remydupont.notescleanarchitecture.data.repository.notes
+package com.remydupont.notescleanarchitecture.data.repository
 
 import com.remydupont.notescleanarchitecture.data.data_source.notes.NoteDao
 import com.remydupont.notescleanarchitecture.domain.model.Note
